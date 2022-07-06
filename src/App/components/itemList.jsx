@@ -6,7 +6,6 @@ const ItemList = ({ tasks, onDelete, onEdit }) => {
   const [modificate, setModificate] = useState("All");
   const handleChange = (value) => {
     setModificate(value);
-    console.log(value);
   };
   return (
     <>

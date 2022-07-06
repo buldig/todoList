@@ -26,7 +26,7 @@ const TodoForm = ({ tasks, handleClick }) => {
         ></i>
 
         <button
-          className="btn btn-primary"
+          className="btn btn-primary sm-1"
           id="position2"
           onClick={() => onClick(counter++, value)}
         >

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
+import API from "../api";
 const Item = ({ item, onDelete, modificate }) => {
   const [check, setCheck] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [value, setValue] = useState(item.name);
-
+  console.log(item);
   const handleChange = () => {
     setCheck((prevState) => !prevState);
     item.completed = !item.completed;
@@ -14,9 +14,10 @@ const Item = ({ item, onDelete, modificate }) => {
     setValue(target.value);
   };
 
-  const handleEdit = (name) => {
+  const handleEdit = (name, id) => {
     setIsEdit((prevState) => !prevState);
     setValue(name);
+    API.tasks.editTask(id, name);
   };
 
   const setClasses = (modificate, completed) => {
@@ -48,6 +49,7 @@ const Item = ({ item, onDelete, modificate }) => {
             type="text"
             value={value}
             onChange={(e) => handleChangeValue(e.target)}
+            className="form-control m-1"
           />
         ) : (
           <p
@@ -62,7 +64,7 @@ const Item = ({ item, onDelete, modificate }) => {
         <div>
           <i
             className="bi bi-pencil p-2"
-            onClick={() => handleEdit(value)}
+            onClick={() => handleEdit(value, item.id)}
             role="button"
           ></i>
           <i

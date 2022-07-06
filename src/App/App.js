@@ -8,11 +8,13 @@ function App() {
   const [tasks, setTasks] = useState(API.tasks.fetchAll());
   const handleClick = (items) => {
     setTasks(items);
+    API.tasks.addTask(items[items.length - 1].name);
+    console.log(API.tasks);
   };
-  console.log(tasks);
   const handleDelete = (id) => {
     const filterTask = tasks.filter((task) => task.id !== id);
     setTasks(filterTask);
+    API.tasks.deleteTask(id);
   };
 
   return (
