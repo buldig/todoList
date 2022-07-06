@@ -1,0 +1,23 @@
+.caption {
+  width: auto;
+  position: absolute;
+  background-color: black;
+  color: white;
+  top: 50px;
+  left: 0;
+}
+
+.position1 {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  transform: translateX(-600%);
+}
+
+#position2 {
+  position: absolute;
+  padding: 5px;
+  top: 0;
+  right: 0;
+  transform: translateX(-50%);
+}
